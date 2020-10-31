@@ -76,7 +76,7 @@ const Settings = (props) => {
               <Text bold>{profile.username}</Text>
               {renderEdit("username")}
             </Block>
-            <Text medium secondary onPress={() => toggleEdit("username")}>
+            <Text medium secondary onPress={() => toggleEdit("username")} style={{color : "#1D6BA0"}}>
               {editing === "username" ? "Save" : "Edit"}
             </Text>
           </Block>
@@ -90,7 +90,7 @@ const Settings = (props) => {
               <Text bold>{profile.location}</Text>
               {renderEdit("location")}
             </Block>
-            <Text medium secondary onPress={() => toggleEdit("location")}>
+            <Text medium secondary onPress={() => toggleEdit("location")} style={{color : "#1D6BA0"}}>
               {editing === "location" ? "Save" : "Edit"}
             </Text>
           </Block>
@@ -104,7 +104,7 @@ const Settings = (props) => {
               <Text bold>{profile.email}</Text>
               {renderEdit("email")}
             </Block>
-            <Text medium secondary onPress={() => toggleEdit("email")}>
+            <Text medium secondary onPress={() => toggleEdit("email")} style={{color : "#1D6BA0"}}>
               {editing === "email" ? "Save" : "Edit"}
             </Text>
           </Block>
@@ -122,8 +122,8 @@ const Settings = (props) => {
               style={{ height: 19 }}
               thumbStyle={styles.thumb}
               trackStyle={{ height: 6, borderRadius: 6 }}
-              minimumTrackTintColor={theme.colors.secondary}
-              maximumTrackTintColor="rgba(157,163,180,0.10)"
+              minimumTrackTintColor="#1D6BA0"
+              maximumTrackTintColor="rgba(29, 107, 160,0.10)"
               value={budget}
               onValueChange={(value) => setBudget(value)}
             />
@@ -141,7 +141,7 @@ const Settings = (props) => {
               style={{ height: 19 }}
               thumbStyle={styles.thumb}
               trackStyle={{ height: 6, borderRadius: 6 }}
-              minimumTrackTintColor={theme.colors.secondary}
+              minimumTrackTintColor="#1D6BA0"
               maximumTrackTintColor="rgba(157,163,180,0.10)"
               value={monthly}
               onValueChange={(value) => setMonthly(value)}
@@ -180,6 +180,7 @@ const Settings = (props) => {
             </Text>
             <Switch
               value={newsletter}
+              thumb="#1D6BA0"
               onValueChange={() => setNewLetter(!newsletter)}
             />
           </Block>
@@ -192,6 +193,7 @@ const Settings = (props) => {
 const styles = StyleSheet.create({
   header: {
     paddingHorizontal: theme.sizes.base * 1.5,
+    marginTop : theme.sizes.base * 2
   },
   avatar: {
     height: theme.sizes.base * 2,
@@ -217,7 +219,7 @@ const styles = StyleSheet.create({
     borderRadius: theme.sizes.base * 2,
     borderWidth: 3,
     borderColor: "white",
-    backgroundColor: theme.colors.primary,
+    backgroundColor: "#1D6BA0",
   },
   toggle: {
     paddingHorizontal: theme.sizes.base * 1.5,

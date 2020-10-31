@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, Image, ImageBackground} from 'react-native'
 import {TextInput,ScrollView,TouchableOpacity} from 'react-native-gesture-handler'
 import { LinearGradient } from 'expo-linear-gradient'
+import {Feather} from '@expo/vector-icons';
 
 export default Grad = () => {
     return(
@@ -17,8 +18,8 @@ export default Grad = () => {
            <View style={{
                backgroundColor:"#FFF",
                paddingVertical:8,
-               paddingHorizontal:20,
-               marginHorizontal:20,
+               paddingHorizontal:30,
+               marginHorizontal:30,
                borderRadius:15,
                marginTop:25,
                flexDirection:"row",
@@ -33,10 +34,7 @@ export default Grad = () => {
                         width:260
                     }}
                />
-               <Image
-                source={require('../../assets/images/3.png')}
-                style={{height:20,width:20}}
-               />
+              <Feather name="search" size={18}/>
            </View>
         </LinearGradient>
     )

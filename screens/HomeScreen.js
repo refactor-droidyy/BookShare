@@ -6,13 +6,15 @@ import HomeHeader from '../components/home/HomeHeader';
 import Grad from '../components/home/Grad';
 import Head from '../components/home/Head';
 import Item from '../components/home/Item'
+import { StatusBar } from 'expo-status-bar';
 
 export default HomeScreen = ({navigation}) => {
     return(
         <View style={{backgroundColor:"#FFF",flex:1}}>
+            <StatusBar backgroundColor="#1D6BA0"/>
             <HomeHeader/>
             <Grad/>  
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
             <Head tit="Category"/>
             <ScrollView
                     horizontal

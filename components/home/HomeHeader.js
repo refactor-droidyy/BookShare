@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image, ImageBackground} from 'react-native'
 import {TextInput,ScrollView,TouchableOpacity} from 'react-native-gesture-handler'
 import { LinearGradient } from 'expo-linear-gradient'
-export default HomeHeader = () => {
+export default HomeHeader = ({navigation}) => {
     return(
         <View style={{
             backgroundColor:"#1D6BA0",
@@ -11,6 +11,7 @@ export default HomeHeader = () => {
             borderBottomRightRadius:20,
             paddingHorizontal:20
         }}>
+            <TouchableOpacity onPress={ () => navigation.openDrawer()}>
             <Image
                  source={require('../../assets/images/1.png')}
                  style={{
@@ -18,7 +19,10 @@ export default HomeHeader = () => {
                      width:20,
                      marginTop:50
                  }}
+                 
             />
+            </TouchableOpacity>
+           
             <View style={{
                 flexDirection:"row",
                 alignItems:"center",
