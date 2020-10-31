@@ -23,34 +23,34 @@ const Screens = ({ navigation, style }) => {
   const option = {
     headerTransparent: true,
     headerTitle: null,
-    headerLeft: () => {
-      return (
-        <Button
-          padding
-          transparent
-          marginHorizontal
-          onPress={() => {
-            navigation.openDrawer();
-          }}
-        >
-          <Feather name="menu" size={24} color="black" />
-        </Button>
-      );
-    },
-    headerRight: () => {
-      return (
-        <Button
-          padding
-          transparent
-          marginHorizontal
-          onPress={() => {
-            //
-          }}
-        >
-          <Feather name="bell" size={24} color="black" />
-        </Button>
-      );
-    },
+    // headerLeft: () => {
+    //   return (
+    //     <Button
+    //       padding
+    //       transparent
+    //       marginHorizontal
+    //       onPress={() => {
+    //         navigation.openDrawer();
+    //       }}
+    //     >
+    //       <Feather name="menu" size={24} color="black" />
+    //     </Button>
+    //   );
+    // },
+    // headerRight: () => {
+    //   return (
+    //     <Button
+    //       padding
+    //       transparent
+    //       marginHorizontal
+    //       onPress={() => {
+    //         //
+    //       }}
+    //     >
+    //       <Feather name="bell" size={24} color="black" />
+    //     </Button>
+    //   );
+    // },
   };
 
   return (
