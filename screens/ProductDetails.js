@@ -1,19 +1,49 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet,TouchableOpacity,Image,KeyboardAvoidingView,StatusBar } from "react-native";
+import { Divider, Button, Block, Text, Switch, Input } from "../components";
+import {Feather} from '@expo/vector-icons';
+import { theme } from "../constants";
+import { FlatList } from "react-native";
 
-const ProductDetails = () => {
+const ProductDetails = ({route , navigation}) => {
+  const { title } = route.params;
   return (
-    <View style={styles.cotainer}>
-      <Text>ProductDetails</Text>
-    </View>
+    <KeyboardAvoidingView style={styles.login} behavior="height">
+    <StatusBar backgroundColor="#1D6BA0" />
+    <Block
+      style={{
+        marginTop: theme.sizes.base * 3,
+        marginHorizontal: theme.sizes.base * 1.1,
+      }}
+      padding={[0, theme.sizes.base * 1.1]}
+    >
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Feather
+          name="arrow-left"
+          size={32}
+          color="black"
+        />
+      </TouchableOpacity>
+      <Text h1 bold style={{ marginTop: theme.sizes.base }}>
+        {title}
+      </Text>
+    </Block>
+    <FlatList/>
+  </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
-  cotainer: {
+  login: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: "white",
+  },
+  input: {
+    borderRadius: 0,
+    borderWidth: 0,
+    borderBottomColor: theme.colors.gray2,
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
 });
 

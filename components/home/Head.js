@@ -3,7 +3,7 @@ import {View, Text, Image, ImageBackground} from 'react-native'
 import {TextInput,ScrollView,TouchableOpacity} from 'react-native-gesture-handler'
 import { LinearGradient } from 'expo-linear-gradient'
 
-export default Head = ({tit}) => {
+export default Head = ({tit , show}) => {
     return(
         <View style={{
                    flexDirection:"row",
@@ -19,7 +19,7 @@ export default Head = ({tit}) => {
                         }}>{tit}</Text>
 
                    </View>
-                   <View style={{width:"50%", alignItems:"flex-end"}}>
+                   {show && (<View style={{width:"50%", alignItems:"flex-end"}}>
                         <View style={{
                             backgroundColor:"#1D6BA0",
                             paddingHorizontal:20,
@@ -32,7 +32,7 @@ export default Head = ({tit}) => {
                                 color:"#FFF"
                             }}>More</Text>
                         </View>
-                   </View>
+                   </View>)}
                </View>
     )
 }
