@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Image, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
+import { Image, StyleSheet, ScrollView, TouchableOpacity, StatusBar } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import Slider from "react-native-slider";
 
@@ -42,6 +42,7 @@ const Settings = (props) => {
 
   return (
     <Block color="white">
+      <StatusBar  backgroundColor="#FFF"/>
       <Block
         flex={false}
         row
@@ -62,7 +63,7 @@ const Settings = (props) => {
         <Text h1 bold>
           Settings
         </Text>
-        <Button>
+        <Button onPress={ () => navigation.navigate('Avatar')}>
           <Image source={profile.avatar} style={styles.avatar} />
         </Button>
       </Block>
@@ -71,13 +72,46 @@ const Settings = (props) => {
           <Block row space="between" margin={[10, 0]} style={styles.inputRow}>
             <Block>
               <Text bold style={{ marginBottom: 10 }} gray2>
-                UserName
+                Name
               </Text>
               <Text bold>{profile.username}</Text>
               {renderEdit("username")}
             </Block>
-            <Text medium secondary onPress={() => toggleEdit("username")} style={{color : "#1D6BA0"}}>
+            <Text medium secondary onPress={() => toggleEdit("username")} style={{color : "#0AC4BA"}}>
               {editing === "username" ? "Save" : "Edit"}
+            </Text>
+          </Block>
+        </Block>
+        
+       
+
+        <Block style={styles.input}>
+          <Block row space="between" margin={[10, 0]} style={styles.inputRow}>
+            <Block>
+              <Text bold style={{ marginBottom: 10 }} gray2>
+                E-Mail
+              </Text>
+              <Text bold>{profile.email}</Text>
+              {renderEdit("email")}
+            </Block>
+            <Text medium secondary onPress={() => toggleEdit("email")} style={{color : "#0AC4BA"}}>
+              {editing === "email" ? "Save" : "Edit"}
+            </Text>
+          </Block>
+        </Block>
+
+        
+        <Block style={styles.input}>
+          <Block row space="between" margin={[10, 0]} style={styles.inputRow}>
+            <Block>
+              <Text bold style={{ marginBottom: 10 }} gray2>
+                Delivery Address
+              </Text>
+              <Text bold>{profile.address}</Text>
+              {renderEdit("address")}
+            </Block>
+            <Text medium secondary onPress={() => toggleEdit("adsress")} style={{color : "#0AC4BA"}}>
+              {editing === "address" ? "Save" : "Edit"}
             </Text>
           </Block>
         </Block>
@@ -90,7 +124,7 @@ const Settings = (props) => {
               <Text bold>{profile.location}</Text>
               {renderEdit("location")}
             </Block>
-            <Text medium secondary onPress={() => toggleEdit("location")} style={{color : "#1D6BA0"}}>
+            <Text medium secondary onPress={() => toggleEdit("location")} style={{color : "#0AC4BA"}}>
               {editing === "location" ? "Save" : "Edit"}
             </Text>
           </Block>
@@ -99,12 +133,12 @@ const Settings = (props) => {
           <Block row space="between" margin={[10, 0]} style={styles.inputRow}>
             <Block>
               <Text bold style={{ marginBottom: 10 }} gray2>
-                E-Mail
+                Pincode
               </Text>
-              <Text bold>{profile.email}</Text>
+              <Text bold>{profile.pincode}</Text>
               {renderEdit("email")}
             </Block>
-            <Text medium secondary onPress={() => toggleEdit("email")} style={{color : "#1D6BA0"}}>
+            <Text medium secondary onPress={() => toggleEdit("email")} style={{color : "#0AC4BA"}}>
               {editing === "email" ? "Save" : "Edit"}
             </Text>
           </Block>
@@ -122,7 +156,7 @@ const Settings = (props) => {
               style={{ height: 19 }}
               thumbStyle={styles.thumb}
               trackStyle={{ height: 6, borderRadius: 6 }}
-              minimumTrackTintColor="#1D6BA0"
+              minimumTrackTintColor="#0AC4BA"
               maximumTrackTintColor="rgba(29, 107, 160,0.10)"
               value={budget}
               onValueChange={(value) => setBudget(value)}
@@ -141,7 +175,7 @@ const Settings = (props) => {
               style={{ height: 19 }}
               thumbStyle={styles.thumb}
               trackStyle={{ height: 6, borderRadius: 6 }}
-              minimumTrackTintColor="#1D6BA0"
+              minimumTrackTintColor="#0AC4BA"
               maximumTrackTintColor="rgba(157,163,180,0.10)"
               value={monthly}
               onValueChange={(value) => setMonthly(value)}
@@ -165,6 +199,7 @@ const Settings = (props) => {
             </Text>
             <Switch
               value={notification}
+              thumb="#0AC4BA"
               onValueChange={() => setNotification(!notification)}
             />
           </Block>
@@ -180,7 +215,7 @@ const Settings = (props) => {
             </Text>
             <Switch
               value={newsletter}
-              thumb="#1D6BA0"
+              thumb="#0AC4BA"
               onValueChange={() => setNewLetter(!newsletter)}
             />
           </Block>
@@ -219,7 +254,7 @@ const styles = StyleSheet.create({
     borderRadius: theme.sizes.base * 2,
     borderWidth: 3,
     borderColor: "white",
-    backgroundColor: "#1D6BA0",
+    backgroundColor: "#0AC4BA",
   },
   toggle: {
     paddingHorizontal: theme.sizes.base * 1.5,

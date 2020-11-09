@@ -15,6 +15,7 @@ import { AuthStack } from "./AuthStack";
 import { SettingStack } from "./SettingStack";
 import { CartStack } from "./CartStack";
 import { MessagesStack } from "./MessageStack";
+import { FavouriteStack } from "./FavouriteStack";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -23,41 +24,13 @@ const Screens = ({ navigation, style }) => {
   const option = {
     headerTransparent: true,
     headerTitle: null,
-    // headerLeft: () => {
-    //   return (
-    //     <Button
-    //       padding
-    //       transparent
-    //       marginHorizontal
-    //       onPress={() => {
-    //         navigation.openDrawer();
-    //       }}
-    //     >
-    //       <Feather name="menu" size={24} color="black" />
-    //     </Button>
-    //   );
-    // },
-    // headerRight: () => {
-    //   return (
-    //     <Button
-    //       padding
-    //       transparent
-    //       marginHorizontal
-    //       onPress={() => {
-    //         //
-    //       }}
-    //     >
-    //       <Feather name="bell" size={24} color="black" />
-    //     </Button>
-    //   );
-    // },
   };
 
   return (
     <Animated.View style={[{ overflow: "hidden", flex: 1 }, style]}>
       <Stack.Navigator>
         <Stack.Screen name="HomeStack" component={HomeStack} options={option} />
-        <Stack.Screen name="CartStack" component={CartStack} options={option} />
+        <Stack.Screen name="CartStack" component={CartStack}  options={{ headerShown: false }} />
         <Stack.Screen
           name="MessageStack"
           component={MessagesStack}
@@ -68,7 +41,8 @@ const Screens = ({ navigation, style }) => {
           component={SettingStack}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="AuthStack" component={AuthStack} />
+        <Stack.Screen name="AuthStack" component={AuthStack}   options={{ headerShown: false }} />
+        <Stack.Screen name="FavouriteStack" component={FavouriteStack}   options={{ headerShown: false }}/>
       </Stack.Navigator>
     </Animated.View>
   );
@@ -114,6 +88,14 @@ const DrawerContent = (props) => {
           onPress={() => props.navigation.navigate("MessageStack")}
           icon={() => <Feather name="message-square" size={18} color="white" />}
         />
+         <DrawerItem
+          labelStyle={{ color: "white", marginLeft: -16 }}
+          label="Favourite"
+          onPress={() => props.navigation.navigate("FavouriteStack")}
+          icon={() => (
+            <Feather name="heart" color="red" size={18} color="white" />
+          )}
+        />
         <DrawerItem
           labelStyle={{ color: "white", marginLeft: -16 }}
           label="Settings"
@@ -122,6 +104,7 @@ const DrawerContent = (props) => {
             <Feather name="sliders" color="red" size={18} color="white" />
           )}
         />
+
       </Block>
     </DrawerContentScrollView>
   );

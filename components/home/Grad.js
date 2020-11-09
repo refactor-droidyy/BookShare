@@ -7,7 +7,7 @@ import {Feather} from '@expo/vector-icons';
 export default Grad = () => {
     return(
         <LinearGradient
-        colors={["rgba(29, 107, 160 ,0.4)", "transparent"]}
+        colors={["rgba(10, 196, 186 ,0.4)", "transparent"]}
         style={{
             left:0,
             right:0,

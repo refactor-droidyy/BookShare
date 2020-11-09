@@ -21,7 +21,7 @@ export default class SwitchInput extends React.PureComponent {
         ios_backgroundColor={GRAY_COLOR}
         trackColor={{
           // false: GRAY_COLOR,
-          true:"#1D6BA0"
+          true:"#0AC4BA"
         }}
         value={value}
         {...props}

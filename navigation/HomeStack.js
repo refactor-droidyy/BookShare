@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
 import ProductDetails from "../screens/ProductDetails";
-import CategoryScreen from "../screens/CategoryScreen";
+import DetailProductScreen from "../screens/DetailProductScreen";
 
 const HomeNavigator = createStackNavigator();
 
@@ -15,8 +15,8 @@ export const HomeStack = () => {
         options={{ title: "Home" }}
       />
       <HomeNavigator.Screen
-        name="CategoryScreen"
-        component={CategoryScreen}
+        name="DetailProductScreen"
+        component={DetailProductScreen}
         options={{ title: "Home" }}
       />
       <HomeNavigator.Screen

@@ -49,7 +49,8 @@ const products = [
     name: "16 Best Plants That Thrive In Your Bedroom",
     description:
       "Bedrooms deserve to be decorated with lush greenery just like every other room in the house – but it can be tricky to find a plant that thrives here. Low light, high humidity and warm temperatures mean only certain houseplants will flourish.",
-    tags: ["Interior", "27 m²", "Ideas"],
+    tags: ["Interior", "Engieneering", "Gate Preparation"],
+    amount : "Rs 20",
     images: [
       require("../assets/images/plants_1.png"),
       require("../assets/images/plants_2.png"),
@@ -65,8 +66,9 @@ const products = [
   },
 ];
 
+
+
 const explore = [
-  // images
   require("../assets/images/explore_1.png"),
   require("../assets/images/explore_2.png"),
   require("../assets/images/explore_3.png"),
@@ -82,8 +84,10 @@ const profile = {
   avatar: require("../assets/images/avatar.png"),
   budget: 1000,
   monthly_cap: 5000,
+  pincode : 225001,
   notifications: true,
   newsletter: false,
+  address : "Near Jugde Kothi Avas Vokas Colony Barabanki"
 };
 
 export { categories, explore, products, profile };

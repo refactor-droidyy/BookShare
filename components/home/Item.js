@@ -4,7 +4,7 @@ import {TextInput,ScrollView,TouchableOpacity} from 'react-native-gesture-handle
 import { LinearGradient } from 'expo-linear-gradient';
 import {Feather,AntDesign} from '@expo/vector-icons';
 
-export default Item = ({prodname,price,hand,star,sellerName}) => {
+export default Item = ({prodname,price,hand,star,sellerName,navigation}) => {
     return(
         <ScrollView 
                     horizontal
@@ -23,7 +23,7 @@ export default Item = ({prodname,price,hand,star,sellerName}) => {
                         }}
                     />
                     <TouchableOpacity 
-                        onPress={()=>navigation.navigate("Detail")}
+                        onPress={() => navigation.navigate("DetailsProductScreen")}
                         style={{
                             height:270,
                             elevation:2,

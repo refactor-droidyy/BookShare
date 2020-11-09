@@ -46,7 +46,7 @@ const SignUp = (props) => {
 
   return (
     <KeyboardAvoidingView style={styles.login} behavior="height">
-      <StatusBar backgroundColor="blue" />
+      <StatusBar backgroundColor="#FFF" />
       <Block
         style={{
           marginTop: theme.sizes.base * 1.8,

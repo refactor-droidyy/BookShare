@@ -21,10 +21,10 @@ export default Head = ({tit , show}) => {
                    </View>
                    {show && (<View style={{width:"50%", alignItems:"flex-end"}}>
                         <View style={{
-                            backgroundColor:"#1D6BA0",
+                            backgroundColor:"#0AC4BA",
                             paddingHorizontal:20,
                             paddingVertical:5,
-                            borderRadius:15
+                            borderRadius:50
                         }}>
                             <Text style={{
                                 fontWeight:"bold",

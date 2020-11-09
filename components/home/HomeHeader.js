@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 export default HomeHeader = ({navigation}) => {
     return(
         <View style={{
-            backgroundColor:"#1D6BA0",
+            backgroundColor:"#0AC4BA",
             height:"28%",
             borderBottomLeftRadius:20,
             borderBottomRightRadius:20,

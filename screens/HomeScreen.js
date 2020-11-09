@@ -5,14 +5,13 @@ import { LinearGradient } from 'expo-linear-gradient'
 import HomeHeader from '../components/home/HomeHeader';
 import Grad from '../components/home/Grad';
 import Head from '../components/home/Head';
-import Item from '../components/home/Item'
 import { StatusBar } from 'expo-status-bar';
-import CategoryGrid from '../components/CategoryGrid';
+import { Feather, AntDesign} from '@expo/vector-icons';
 
 export default HomeScreen = ({navigation}) => {
     return(
         <View style={{backgroundColor:"#FFF",flex:1}}>
-            <StatusBar backgroundColor="#1D6BA0"/>
+            <StatusBar backgroundColor="#0AC4BA"/>
             <HomeHeader/>
             <Grad />  
             <ScrollView  showsVerticalScrollIndicator={false}>
@@ -58,11 +57,167 @@ export default HomeScreen = ({navigation}) => {
     </ScrollView>
             
             <Head tit="Recommended" show={true}/>
-            <Item/>
+
+            <ScrollView 
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    style={{height:300}}
+                >
+                    <LinearGradient
+                        colors={["rgba(0,164,109,0.09)", "transparent"]}
+                        style={{
+                            position:"absolute",
+                            left:0,
+                            right:0,
+                            height:80,
+                            marginTop:220,
+                            top:0
+                        }}
+                    />
+                    <TouchableOpacity 
+                        onPress={() => navigation.push("DetailProductScreen",{ title : 'DetailProduct'})}
+                        style={{
+                            height:270,
+                            elevation:2,
+                            backgroundColor:"#FFF",
+                            marginLeft:20,
+                            marginTop:20,
+                            borderRadius:15,
+                            marginBottom:10,
+                            width:160
+                        }}
+                    >
+                        <Image
+                            source={require('../assets/images/4.png')}
+                        />
+                        <View style={{
+                            flexDirection:"row",
+                            paddingTop:10,
+                            paddingHorizontal:10
+                        }}>
+                            <Text style={{
+                                fontWeight:"bold"
+                            }}>SAMANTHA</Text>
+                            <Text style={{
+                                fontWeight:"bold",
+                                color:"#00a46c",
+                                paddingLeft:35
+                            }}>$400</Text>
+                        </View>
+                        <View style={{ flexDirection : 'row', justifyContent : 'space-between'}}>
+                        <Text style={{
+                            paddingHorizontal:10,
+                            fontWeight:"bold",
+                            color:"#b1e5d3",
+                            paddingTop:3,
+                        }}>
+                            RUSSIA
+                        </Text>
+                        <View style={{flexDirection : 'row' , alignItems : 'center',paddingHorizontal : 5}}>
+                        <Text style={{
+                            fontWeight:"bold",
+                            color:"#b1e5d3",
+                            paddingTop:3
+                        }}>
+                            3
+                        </Text>
+                        <AntDesign name="star" color="yellow" size={20}/>
+                        </View>
+                        
+                        </View>
+                        <Text style={{
+                            marginHorizontal : 10,
+                            fontWeight:"300",
+                            color:"gray",
+                            paddingTop:3
+                        }}>
+                            Seller - Rohit Verma
+                        </Text>
+                    </TouchableOpacity>
+                </ScrollView>    
+
             <Head tit="Recently Visited"show={true}/>
-            <Item/>
+
+            <ScrollView 
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    style={{height:300}}
+                >
+                    <LinearGradient
+                        colors={["rgba(0,164,109,0.09)", "transparent"]}
+                        style={{
+                            position:"absolute",
+                            left:0,
+                            right:0,
+                            height:80,
+                            marginTop:220,
+                            top:0
+                        }}
+                    />
+                    <TouchableOpacity 
+                        onPress={() => navigation.push("DetailProductScreen",{ title : 'DetailProduct'})}
+                        style={{
+                            height:270,
+                            elevation:2,
+                            backgroundColor:"#FFF",
+                            marginLeft:20,
+                            marginTop:20,
+                            borderRadius:15,
+                            marginBottom:10,
+                            width:160
+                        }}
+                    >
+                        <Image
+                            source={require('../assets/images/4.png')}
+                        />
+                        <View style={{
+                            flexDirection:"row",
+                            paddingTop:10,
+                            paddingHorizontal:10
+                        }}>
+                            <Text style={{
+                                fontWeight:"bold"
+                            }}>SAMANTHA</Text>
+                            <Text style={{
+                                fontWeight:"bold",
+                                color:"#00a46c",
+                                paddingLeft:35
+                            }}>$400</Text>
+                        </View>
+                        <View style={{ flexDirection : 'row', justifyContent : 'space-between'}}>
+                        <Text style={{
+                            paddingHorizontal:10,
+                            fontWeight:"bold",
+                            color:"#b1e5d3",
+                            paddingTop:3,
+                        }}>
+                            RUSSIA
+                        </Text>
+                        <View style={{flexDirection : 'row' , alignItems : 'center',paddingHorizontal : 5}}>
+                        <Text style={{
+                            fontWeight:"bold",
+                            color:"#b1e5d3",
+                            paddingTop:3
+                        }}>
+                            3
+                        </Text>
+                        <AntDesign name="star" color="yellow" size={20}/>
+                        </View>
+                        
+                        </View>
+                        <Text style={{
+                            marginHorizontal : 10,
+                            fontWeight:"300",
+                            color:"gray",
+                            paddingTop:3
+                        }}>
+                            Seller - Rohit Verma
+                        </Text>
+                    </TouchableOpacity>
+                </ScrollView>   
+
+
             </ScrollView>
-            
         </View>
     )
 }
@@ -77,7 +232,7 @@ width : 120,
           ? 'hidden'
           : 'visible',
       elevation: 5,
-      backgroundColor:'#1D7CB2',
+      backgroundColor:'#0AC4BA',
       justifyContent: 'center',
       alignItems: 'center'
     },
