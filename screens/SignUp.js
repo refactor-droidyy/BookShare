@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   Keyboard,
   StatusBar,
+  Alert,
   TouchableOpacity,
 } from "react-native";
 import { Text, Block, Button, Input } from "../components";
@@ -16,8 +17,11 @@ const VALID_PASSWORD = "rohit@123";
 
 const SignUp = (props) => {
   const { navigation } = props;
-  const [email, setEmail] = useState(VALID_EMAIL);
-  const [password, setPassword] = useState(VALID_PASSWORD);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [phone,setPhone] = useState();
+  const [name,setName] = useState();
+  const [address,setAddress] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState([]);
 
@@ -26,15 +30,23 @@ const SignUp = (props) => {
     setLoading(true);
 
     const arr = [];
-    if (email !== VALID_EMAIL) {
-      arr.push("email");
-    } else if (password != VALID_PASSWORD) {
-      arr.push("password");
-    }
+    
     setLoading(false);
     setError(arr);
     if (!error.length) {
-      navigation.navigate("Browser");
+      Alert.alert(
+        "Successfully Account Created",
+        "Please Login",
+        [
+          {
+            text: "OK",
+            onPress: () => {
+              navigation.navigate('LoginScreen');
+            },
+          },
+        ],
+        { cancelable: false }
+      );
     }
   };
 
@@ -71,9 +83,9 @@ const SignUp = (props) => {
             label="Name or Username"
             error={hasError("email")}
             style={[styles.input, hasError("email")]}
-            defaultValue="Rohit Verma"
+            defaultValue=""
             onChangeText={(text) => {
-              setEmail(text);
+              setName(text);
             }}
           />
           <Input
@@ -89,9 +101,9 @@ const SignUp = (props) => {
             label="Phone Number"
             error={hasError("email")}
             style={[styles.input, hasError("email")]}
-            defaultValue="+91 70007220338"
+            defaultValue="+91 "
             onChangeText={(text) => {
-              setEmail(text);
+              setPhone(text);
             }}
           />
           <Input

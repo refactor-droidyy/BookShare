@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import {
   StyleSheet,
-  Dimension,
   KeyboardAvoidingView,
   ActivityIndicator,
   Keyboard,
+  Alert,
   StatusBar,
   TouchableOpacity
 } from "react-native";
@@ -12,12 +12,12 @@ import { Text, Block, Button, Input } from "../components";
 import { theme } from "../constants";
 import { Feather } from "@expo/vector-icons";
 const VALID_EMAIL = "rohitlucknow14@gmail.com";
-const VALID_PASSWORD = "rohit@123";
+const VALID_PASSWORD = "rohit@1234";
 
 const Login = (props) => {
   const { navigation } = props;
-  const [email, setEmail] = useState(VALID_EMAIL);
-  const [password, setPassword] = useState(VALID_PASSWORD);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState([]);
 
@@ -28,8 +28,14 @@ const Login = (props) => {
     const arr = [];
     if (email !== VALID_EMAIL) {
       arr.push("email");
-    } else if (password != VALID_PASSWORD) {
-      arr.push("password");
+    }else if(email != VALID_EMAIL && password != VALID_PASSWORD){
+      Alert.alert("invalid username and password")
+    } else if(email == VALID_EMAIL && password != VALID_PASSWORD){
+      Alert.alert("invalid user")
+    }else if(email == VALID_EMAIL && password == VALID_PASSWORD){
+      const timer = setTimeout(() => {
+        setLoading(true);
+       }, 1000);
     }
     setLoading(false);
     setError(arr);
@@ -40,7 +46,7 @@ const Login = (props) => {
       }, 1000);
      
     }
-   
+    clearTimeout(timer)
     setLoading(false);
   };
 

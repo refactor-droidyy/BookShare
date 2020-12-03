@@ -61,7 +61,7 @@ const DrawerContent = (props) => {
             style={{ height:200,width:200 ,borderRadius: 500 }}
           />
           <Text numberOfLines={1} ellipsizeMode="tail" white>
-            Rohit Verma
+            Rohit 
           </Text>
           <Text numberOfLines={1} ellipsizeMode="tail" white size={16}>
             rohitlucknow14@gmail.com

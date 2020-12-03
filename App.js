@@ -5,7 +5,7 @@ import { RootStack } from "./navigation/RootNavigator";
 import { AuthStack } from "./navigation/AuthStack";
 export default function App() {
   const [token, setToken] = useState();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   return (
     <NavigationContainer>
       {loading ? <RootStack /> : <AuthStack />}
@@ -21,3 +21,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+// fv ai databook
+// cart ai agile

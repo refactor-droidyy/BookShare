@@ -143,8 +143,8 @@ const Settings = (props) => {
           </Block>
         </Block>
 
-        <Divider margin={[theme.sizes.base, theme.sizes.base * 2]} />
-        <Block style={styles.slider}>
+        {/* <Divider margin={[theme.sizes.base, theme.sizes.base * 2]} /> */}
+        {/* <Block style={styles.slider}>
           <Block>
             <Text gray body style={{ marginBottom: 10 }}>
               Budget
@@ -183,7 +183,7 @@ const Settings = (props) => {
               ${monthly.toFixed(0)}
             </Text>
           </Block>
-        </Block>
+        </Block> */}
 
         <Divider />
         <Block style={styles.toggle}>

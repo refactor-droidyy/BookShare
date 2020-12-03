@@ -17,7 +17,7 @@ const VALID_EMAIL = "rohitlucknow14@gmail.com";
 
 const ForgotPasswordScreen = (props) => {
   const { navigation } = props;
-  const [email, setEmail] = useState(VALID_EMAIL);
+  const [email, setEmail] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState([]);
 

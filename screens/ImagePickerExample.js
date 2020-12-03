@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Image, View, Platform } from 'react-native';
+import { Button, Image, View, Platform ,TouchableOpacity,StyleSheet,Text} from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 
@@ -32,9 +32,33 @@ export default function ImagePickerExample() {
   };
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button title="Pick an image from camera roll" onPress={pickImage} />
+    <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+      <TouchableOpacity style={styles.gridItem} 
+                          onPress={pickImage}>
+        <Text style={styles.title}>Pick Image</Text>
+        </TouchableOpacity>
       {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  gridItem: {
+    flex: 1,margin: 15, height: 50,
+    width : 120,
+    borderRadius: 30,
+    overflow:
+      Platform.OS === 'android' && Platform.Version >= 21
+        ? 'hidden'
+        : 'visible',
+    elevation: 5,
+    backgroundColor:'#0AC4BA',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  title: {
+    color : '#FFF',
+    fontSize: 16,
+    textAlign: 'center'
+  }
+});

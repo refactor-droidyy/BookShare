@@ -1,5 +1,5 @@
 import React,{useState , useEffect} from 'react';
-import {View,StyleSheet,StatusBar,TouchableOpacity,Image,ScrollView} from 'react-native';
+import {View,StyleSheet,StatusBar,TouchableOpacity,Image,ScrollView, Alert} from 'react-native';
 import { Button, Divider, Input, Block, Text } from "../components";
 import { Feather } from "@expo/vector-icons";
 import { theme, mocks } from "../constants";
@@ -7,13 +7,17 @@ const VALID_EMAIL = "rohitlucknow14@gmail.com";
 const VALID_PASSWORD = "rohit@123";
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
+import ImagePickerExample from '../screens/ImagePickerExample';
 
 export default PostScreen = ({navigation}) => {
 
-  const [email, setEmail] = useState(VALID_EMAIL);
-  const [password, setPassword] = useState(VALID_PASSWORD);
+  const [productName, setproductName] = useState();
+  const [price, setPrice] = useState();
+  const [description,setDescription] = useState();
   const [loading, setLoading] = useState(false);
+  const [tags,setTags] = useState();
   const [error, setError] = useState([]);
+  const [location,setLocation] = useState();
   const [image, setImage] = useState(require('../assets/icons/select.png'));
 
   useEffect(() => {
@@ -34,10 +38,9 @@ export default PostScreen = ({navigation}) => {
       quality: 1,
     });
 
-    console.log(result);
-
     if (!result.cancelled) {
       setImage(result.uri);
+      console.log(result.uri)
     }
   };
 
@@ -50,6 +53,7 @@ export default PostScreen = ({navigation}) => {
     return(
         <View style={styles.login} behavior="height">
         <StatusBar backgroundColor="#FFF" />
+       
         <Block
           style={{
             marginTop: theme.sizes.base * 2.5,
@@ -65,14 +69,14 @@ export default PostScreen = ({navigation}) => {
               onPress={() => navigation.goBack()}
             />
           </TouchableOpacity>
-          <Text h1 bold style={{ marginTop: theme.sizes.base }}>
+          <Text h1 bold style={{ marginTop: theme.sizes.base , marginVertical : 10}}>
             Upload A Product
           </Text>
+         
           <ScrollView showsVerticalScrollIndicator={false}>
+          <ImagePickerExample/>
           <Block center style={{marginTop : 50}}>
-          <Button onPress={pickImage}>
-          <Image source={image} style={{width: 150,height: 150,resizeMode: 'cover' ,borderRadius : 10}} />
-        </Button>
+          
 
       </Block>
           <Block middle style={{marginTop : 50}}>
@@ -80,51 +84,51 @@ export default PostScreen = ({navigation}) => {
               label="Product Name"
               error={hasError("email")}
               style={[styles.input, hasError("email")]}
-              defaultValue={email}
+              defaultValue={productName}
               onChangeText={(text) => {
-                setEmail(text);
+                setproductName(text);
               }}
             />
             <Input
               label="Description"
               error={hasError("email")}
               style={[styles.input, hasError("email")]}
-              defaultValue={email}
+              defaultValue={description}
               onChangeText={(text) => {
-                setEmail(text);
+                setDescription(text);
               }}
             />
             <Input
               label="Expected Selling Price"
               error={hasError("email")}
               style={[styles.input, hasError("email")]}
-              defaultValue={email}
+              defaultValue={price}
               onChangeText={(text) => {
-                setEmail(text);
+                setPrice(text);
               }}
             />
             <Input
-              label="Email"
+              label="Tags"
               error={hasError("email")}
               style={[styles.input, hasError("email")]}
-              defaultValue={email}
+              defaultValue={tags}
               onChangeText={(text) => {
-                setEmail(text);
+                setTags(text);
               }}
             />
             <Input
-              label="Password"
+              label="Location"
               error={hasError("password")}
               style={[styles.input, hasError("password")]}
-              defaultValue={password}
+              defaultValue={location}
               onChangeText={(text) => {
-                setPassword(text);
+                setLocation(text);
               }}
             />
             <Button
               gradient
               onPress={() => {
-                
+                Alert.alert("Succesfully Uploded product Please Wait for the reply...")
               }}
             >
               {loading ? (

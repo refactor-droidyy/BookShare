@@ -34,7 +34,7 @@ export default HomeHeader = ({navigation}) => {
                          fontSize:28,
                          color:"#FFF",
                          fontWeight:"bold"
-                     }}>Hi Vishal</Text>
+                     }}>Hi, Rohit </Text>
                 </View>
                 <View style={{width:"50%",alignItems:"flex-end"}}>
                      <Image

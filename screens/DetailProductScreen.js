@@ -316,13 +316,15 @@ export default Product = ({navigation,route}) => {
             style={{ width, height: height / 2.8 }}
           />
         <Block style={styles.product}>
+        <Block >
+          <Text h2 bold>Price</Text>
+          <Text h1 style={{ color : "red"}}>र {price} </Text>
+          </Block>
           <Text h2 bold>
             Description
           </Text>
 
-          <Block >
-          <Text h1 style={{ color : "red"}}>र {price} </Text>
-          </Block>
+         
           <Block flex={false} row margin={[theme.sizes.base, 0]}>
 
               <Text caption gray style={styles.tag}>

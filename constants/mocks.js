@@ -78,7 +78,7 @@ const explore = [
 ];
 
 const profile = {
-  username: "refactor-droidyy",
+  username: "Rohit Verma",
   location: "India",
   email: "rohitlucknow14@gmail.com",
   avatar: require("../assets/images/avatar.png"),
