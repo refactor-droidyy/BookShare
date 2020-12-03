@@ -33,9 +33,15 @@ const Login = (props) => {
     }
     setLoading(false);
     setError(arr);
+    let timer;
     if (!error.length) {
-      navigation.navigate("Browser");
+      timer = setTimeout(() => {
+       setLoading(true);
+      }, 1000);
+     
     }
+   
+    setLoading(false);
   };
 
   const handleForgotPassword = () => {

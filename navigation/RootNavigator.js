@@ -14,8 +14,8 @@ import Animated from "react-native-reanimated";
 import { AuthStack } from "./AuthStack";
 import { SettingStack } from "./SettingStack";
 import { CartStack } from "./CartStack";
-import { MessagesStack } from "./MessageStack";
 import { FavouriteStack } from "./FavouriteStack";
+import { PostStack } from "./PostStack";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -31,14 +31,16 @@ const Screens = ({ navigation, style }) => {
       <Stack.Navigator>
         <Stack.Screen name="HomeStack" component={HomeStack} options={option} />
         <Stack.Screen name="CartStack" component={CartStack}  options={{ headerShown: false }} />
-        <Stack.Screen
-          name="MessageStack"
-          component={MessagesStack}
-          options={{ title : "Conversation"}}
-        />
+       
         <Stack.Screen
           name="SettingStack"
           component={SettingStack}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="PostStack"
+          component={PostStack}
           options={{ headerShown: false }}
         />
         <Stack.Screen name="AuthStack" component={AuthStack}   options={{ headerShown: false }} />
@@ -54,14 +56,9 @@ const DrawerContent = (props) => {
       <Block>
         <Block flex={0.4} margin={20} bottom>
           <Image
-            source={{
-              uri:
-                "https://scontent.fpat3-1.fna.fbcdn.net/v/t1.0-9/57608869_132708861126282_5968758498412986368_o.jpg?_nc_cat=103&ccb=2&_nc_sid=09cbfe&_nc_ohc=xhkKXL1IcPMAX8KD5oK&_nc_ht=scontent.fpat3-1.fna&oh=d55789a9c782194bf813f6f00302540a&oe=5FB5635A",
-              height: 80,
-              width: 80,
-            }}
+            source={require('../assets/icons/avatar.png')}
             resizeMode="center"
-            style={{ borderRadius: 500, margin: 5 }}
+            style={{ height:200,width:200 ,borderRadius: 500 }}
           />
           <Text numberOfLines={1} ellipsizeMode="tail" white>
             Rohit Verma
@@ -84,8 +81,8 @@ const DrawerContent = (props) => {
         />
         <DrawerItem
           labelStyle={{ color: "white", marginLeft: -16 }}
-          label="Converasation"
-          onPress={() => props.navigation.navigate("MessageStack")}
+          label="Upload"
+          onPress={() => props.navigation.navigate("PostStack")}
           icon={() => <Feather name="message-square" size={18} color="white" />}
         />
          <DrawerItem

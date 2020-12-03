@@ -254,28 +254,20 @@ import {
   StyleSheet,
   ScrollView,
   StatusBar,
+  Alert,
   TouchableOpacity
 } from "react-native";
 import {Feather} from "@expo/vector-icons";
 
-import { Button, Divider, Input, Block, Text } from "../components";
+import { Divider, Input, Block, Text } from "../components";
 import { theme, mocks } from "../constants";
-
+import {products} from '../constants/mocks'
 const { width, height } = Dimensions.get("window");
 
-class Product extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      headerRight: (
-        <Button onPress={() => {}}>
-          <Feather.Entypo name="dots-three-horizontal" color={theme.colors.gray} />
-        </Button>
-      )
-    };
-  };
-
-  renderGallery() {
-    const  product = mocks.products[0];
+export default Product = ({navigation,route}) => {
+  const product = products[0];
+  const renderGallery = () => {
+    
     return (
       <FlatList
         horizontal
@@ -296,9 +288,7 @@ class Product extends Component {
     );
   }
 
-  render() {
-     const { product } = this.props;
-
+  const {title , uri ,tags,description, price} = route.params;
     return (
       <ScrollView showsVerticalScrollIndicator={false}>
         <StatusBar  backgroundColor="#FFF"/>
@@ -317,31 +307,74 @@ class Product extends Component {
           />
         </TouchableOpacity>
         <Text h1 bold center>
-          Product Name
+          {title}
         </Text>
       </Block>
-
-        {this.renderGallery()}
-
+      <Image
+            source={{uri : uri}}
+            resizeMode="contain"
+            style={{ width, height: height / 2.8 }}
+          />
         <Block style={styles.product}>
           <Text h2 bold>
-            Product Description
+            Description
           </Text>
+
+          <Block >
+          <Text h1 style={{ color : "red"}}>र {price} </Text>
+          </Block>
           <Block flex={false} row margin={[theme.sizes.base, 0]}>
-            {product.tags.map(tag => (
-              <Text key={`tag-${tag}`} caption gray style={styles.tag}>
-                {tag}
+
+              <Text caption gray style={styles.tag}>
+               {tags[0]}
               </Text>
-            ))}
+              <Text caption gray style={styles.tag}>
+               {tags[1]}
+              </Text>
+            
           </Block>
           <Text gray light height={22}>
-            Very Good One "\n"
-            {product.description}
+            {description}
           </Text>
 
           <Divider margin={[theme.sizes.padding * 0.9, 0]} />
 
-          <Block>
+          <Block row>
+          <TouchableOpacity style={styles.gridItem} backgroundColor="#95EE65"
+                              onPress={() => Alert.alert(
+                                "Product Succesfully Added to Cart",
+                                "",
+                                [
+                                  {
+                                    text: "Okay",
+                                    onPress: () => console.log("Cancel Pressed"),
+                                    style: "cancel"
+                                  },
+                                  
+                                ],
+                                { cancelable: false }
+                              )}>
+                                <Text style={styles.title}>Add to Cart</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.gridItem} backgroundColor="#95EE65"
+                             onPress={() => Alert.alert(
+                              "Added To Favourite",
+                              "",
+                              [
+                                {
+                                  text: "Okay",
+                                  onPress: () => console.log("Cancel Pressed"),
+                                  style: "cancel"
+                                },
+                                
+                              ],
+                              { cancelable: false }
+                            )}>
+                                <Text style={styles.title}>Add to Favorite</Text>
+          </TouchableOpacity>
+          </Block>
+          
+          {/* <Block>
             <Text semibold>Gallery</Text>
             <Block row margin={[theme.sizes.padding * 0.9, 0]}>
               {product.images.slice(1, 3).map((image, index) => (
@@ -362,18 +395,11 @@ class Product extends Component {
                 <Text gray>+{product.images.slice(3).length}</Text>
               </Block>
             </Block>
-          </Block>
+          </Block> */}
         </Block>
       </ScrollView>
     );
   }
-}
-
-Product.defaultProps = {
-  product: mocks.products[0]
-};
-
-export default Product;
 
 const styles = StyleSheet.create({
   product: {
@@ -417,4 +443,18 @@ const styles = StyleSheet.create({
     marginTop: theme.sizes.base / 2,
     justifyContent : 'center'
   },
+  gridItem: {
+    flex: 1,margin: 15, height: 50,
+    width : 120,
+    borderRadius: 30,
+    elevation: 5,
+    backgroundColor:'#0AC4BA',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  title: {
+    color : '#FFF',
+    fontSize: 16,
+    textAlign: 'center'
+  }
 });

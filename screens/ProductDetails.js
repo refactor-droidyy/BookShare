@@ -9,7 +9,7 @@ const ProductDetails = ({route , navigation}) => {
   const { title } = route.params;
   return (
     <KeyboardAvoidingView style={styles.login} behavior="height">
-    <StatusBar backgroundColor="#1D6BA0" />
+    <StatusBar backgroundColor="white" />
     <Block
       style={{
         marginTop: theme.sizes.base * 3,

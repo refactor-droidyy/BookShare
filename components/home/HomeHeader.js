@@ -38,8 +38,9 @@ export default HomeHeader = ({navigation}) => {
                 </View>
                 <View style={{width:"50%",alignItems:"flex-end"}}>
                      <Image
-                         source={require('../../assets/images/avatar.png')}
-                         style={{height:60,width:60}}
+                         source={require('../../assets/icons/avatar.png')}
+                         style={{height:60,width:60 ,borderRadius: 500, margin: 5}}
+                         
                      />
                 </View>
             </View>

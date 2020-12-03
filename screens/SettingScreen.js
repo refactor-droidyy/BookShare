@@ -64,7 +64,8 @@ const Settings = (props) => {
           Settings
         </Text>
         <Button onPress={ () => navigation.navigate('Avatar')}>
-          <Image source={profile.avatar} style={styles.avatar} />
+          <Image source={require('../assets/icons/avatar.png')}
+                         style={{height:60,width:60 ,borderRadius: 500}} />
         </Button>
       </Block>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -82,8 +83,6 @@ const Settings = (props) => {
             </Text>
           </Block>
         </Block>
-        
-       
 
         <Block style={styles.input}>
           <Block row space="between" margin={[10, 0]} style={styles.inputRow}>
