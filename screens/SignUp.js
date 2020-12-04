@@ -5,6 +5,7 @@ import {
   KeyboardAvoidingView,
   ActivityIndicator,
   Keyboard,
+  View,
   StatusBar,
   Alert,
   TouchableOpacity,
@@ -12,6 +13,7 @@ import {
 import { Text, Block, Button, Input } from "../components";
 import { theme } from "../constants";
 import { Feather } from "@expo/vector-icons";
+import { ScrollView } from "react-native";
 const VALID_EMAIL = "rohitlucknow14@gmail.com";
 const VALID_PASSWORD = "rohit@123";
 
@@ -21,6 +23,7 @@ const SignUp = (props) => {
   const [password, setPassword] = useState();
   const [phone,setPhone] = useState();
   const [name,setName] = useState();
+  const [pincode,setPincode] = useState();
   const [address,setAddress] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState([]);
@@ -57,7 +60,7 @@ const SignUp = (props) => {
   const hasError = (key) => (error.includes(key) ? styles.hasErrors : null);
 
   return (
-    <KeyboardAvoidingView style={styles.login} behavior="height">
+    <View style={styles.login} >
       <StatusBar backgroundColor="#FFF" />
       <Block
         style={{
@@ -78,6 +81,8 @@ const SignUp = (props) => {
         <Text h1 bold style={{ marginTop: theme.sizes.base }}>
           SignUp
         </Text>
+
+        <ScrollView showsVerticalScrollIndicator={false}>
         <Block middle>
           <Input
             label="Name or Username"
@@ -116,6 +121,24 @@ const SignUp = (props) => {
               setPassword(text);
             }}
           />
+          <Input
+            label="Adress"
+            error={hasError("password")}
+            style={[styles.input, hasError("password")]}
+            defaultValue={address}
+            onChangeText={(text) => {
+              setAddress(text);
+            }}
+          />
+          <Input
+            label="Pincode"
+            error={hasError("password")}
+            style={[styles.input, hasError("password")]}
+            defaultValue={pincode}
+            onChangeText={(text) => {
+              setPincode(text);
+            }}
+          />
           <Button
             gradient
             onPress={() => {
@@ -145,8 +168,9 @@ const SignUp = (props) => {
             </Text>
           </Button>
         </Block>
+        </ScrollView>
       </Block>
-    </KeyboardAvoidingView>
+    </View>
   );
 };
 

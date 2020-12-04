@@ -5,7 +5,7 @@ import { RootStack } from "./navigation/RootNavigator";
 import { AuthStack } from "./navigation/AuthStack";
 export default function App() {
   const [token, setToken] = useState();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   return (
     <NavigationContainer>
       {loading ? <RootStack /> : <AuthStack />}

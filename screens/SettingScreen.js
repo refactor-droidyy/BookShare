@@ -75,7 +75,7 @@ const Settings = (props) => {
               <Text bold style={{ marginBottom: 10 }} gray2>
                 Name
               </Text>
-              <Text bold>{profile.username}</Text>
+              <Text bold>Rohit</Text>
               {renderEdit("username")}
             </Block>
             <Text medium secondary onPress={() => toggleEdit("username")} style={{color : "#0AC4BA"}}>
